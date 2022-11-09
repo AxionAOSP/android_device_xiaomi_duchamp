@@ -92,6 +92,10 @@ on post-fs
     mkdir /odm/etc/sensors 0755 system system
     mkdir /mnt/vendor/persist/sensors 0755 system system
 
+    # Workarround for cache
+    rm /data/resource-cache
+    rm /data/system/package_cache
+
     # change owner
     chown root system /proc/mtprof/cputime
     chown root system /proc/mtprof/reboot_pid
