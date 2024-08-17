@@ -1,8 +1,7 @@
 #!/usr/bin/env -S PYTHONPATH=../../../tools/extract-utils python3
-#
+
 # SPDX-FileCopyrightText: 2024 The LineageOS Project
 # SPDX-License-Identifier: Apache-2.0
-#
 
 from extract_utils.fixups_blob import (
     blob_fixup,
@@ -24,10 +23,8 @@ namespace_imports = [
     'hardware/xiaomi',
 ]
 
-
 def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
     return f'{lib}-{partition}' if partition == 'vendor' else None
-
 
 lib_fixups: lib_fixups_user_type = {
     **lib_fixups,
@@ -41,7 +38,6 @@ lib_fixups: lib_fixups_user_type = {
      'vendor.xiaomi.hw.touchfeature-V1-ndk'): lib_fixup_vendor_suffix,
     ('libsink',): lib_fixup_remove,
 }
-
 
 blob_fixups: blob_fixups_user_type = {
     'system_ext/priv-app/ImsService/ImsService.apk': blob_fixup()
@@ -93,6 +89,13 @@ blob_fixups: blob_fixups_user_type = {
      'vendor/lib64/libmtkcam_grallocutils_aidlv1helper.so'): blob_fixup()
         .replace_needed('android.hardware.graphics.allocator-V1-ndk.so', 'android.hardware.graphics.allocator-V2-ndk.so')
         .replace_needed('android.hardware.graphics.common-V4-ndk.so', 'android.hardware.graphics.common-V5-ndk.so'),
+
+    ('vendor/lib64/libcodec2_soft_ac4dec.so', 'vendor/lib64/libcodec2_soft_ddpdec.so'): blob_fixup()
+        .replace_needed('libcodec2_soft_common.so', 'libcodec2_soft_common_prebuilt.so'),
+
+    # Dolby Codec2 Patch
+    'vendor/bin/hw/dolbycodec2': blob_fixup()
+        .add_needed('libshim_codec2_hidl.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
