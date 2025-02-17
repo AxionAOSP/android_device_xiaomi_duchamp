@@ -184,6 +184,7 @@ PRODUCT_PACKAGES += \
    FrameworksResOverlayDuchamp \
    PowerOffAlarmOverlayDuchamp \
    SettingsProviderOverlayDuchampPOCO \
+   SettingsResOverlayDerpDuchamp \
    SettingsProviderOverlayDuchampRedmi \
    SettingsResOverlayDuchamp \
    SystemUIOverlayDuchamp \
