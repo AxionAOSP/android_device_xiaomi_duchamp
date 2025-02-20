@@ -199,9 +199,6 @@ PRODUCT_PACKAGES += \
    LineageApertureOverlayDuchamp \
    LineageDialerDuchamp
 
-# PixelOverlay
-$(call inherit-product, vendor/google/overlays/ThemeIcons/config.mk)
-
 # Parts
 PRODUCT_PACKAGES += \
     XiaomiParts
@@ -261,10 +258,6 @@ PRODUCT_COPY_FILES += \
 
 # Properties
 include $(DEVICE_PATH)/vendor_logtag.mk
-
-# Quick Tap
-PRODUCT_PACKAGES += \
-    ColumbusService
 
 # SKU
 PRODUCT_COPY_FILES += \
@@ -355,6 +348,9 @@ PRODUCT_PACKAGES += \
     vendor.lineage.health-service.default
 
 # Logging
+PRODUCT_PACKAGES += \
+    MatLog
+
 SPAMMY_LOG_TAGS := \
     AiAiEcho \
     MiStcImpl \

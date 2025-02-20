@@ -4,8 +4,8 @@ echo "Applying source modifications..."
 # UDFPS Patch for frameworks/base
 echo "Fetching and applying UDFPS patch for frameworks/base..."
 cd frameworks/base
-git fetch https://github.com/xiaomi-mt6897-duchamp/PixelOS_frameworks_base
-git cherry-pick 6e465226c80db0395340605b81ec9f910b566817 97b618cb948f36ad75515963b41dd2304a59524a 
+git fetch https://github.com/xiaomi-mt6897-duchamp/axion_frameworks_base_new
+git cherry-pick b677a71f0ef31567dc4d5332a1fd6575e60cdcba 18485997a67890b3f3b26034b41b1cf657db1e9f
 cd ../../
 
 # Hardware Compatibility Fixes
@@ -25,15 +25,9 @@ cd ../../
 # Nuke refresh rate selector
 echo "Nuking refresh rate selector so no one mess with it"
 cd  packages/apps/Settings
-git fetch https://github.com/xiaomi-mt6897-duchamp/android_packages_apps_Settings
-git cherry-pick 697a70a15351479b048e17205686a71147b92504
+git fetch https://github.com/xiaomi-mt6897-duchamp/axion_packages_apps_Settings
+git cherry-pick 1d32364392c4027cd04852c684a66d8cdd6cfb1d
 cd ../../../
-
-# Private Keys Setup
-echo "Setting up private signing keys..."
-git clone https://github.com/zenin1504/private-keys.git /tmp/keys
-rm -rf vendor/aosp/signing/keys
-mv /tmp/keys vendor/aosp/signing/keys
 
 # V4A
 git clone https://github.com/xiaomi-mt6897-duchamp/packages_apps_ViPER4AndroidFX.git -b v4a packages/apps/ViPER4AndroidFX
