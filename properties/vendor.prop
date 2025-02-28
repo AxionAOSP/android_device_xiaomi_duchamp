@@ -138,9 +138,6 @@ trustkernel.log.state=disable
 debug.mdpcomp.logs=0
 debug.atrace.tags.enableflags=0
 
-# displayfeature
-persist.sys.sf.native_mode=258
-
 # Display
 debug.sf.frame_rate_multiple_threshold=120
 debug.graphics.game_default_frame_rate.disabled=true
