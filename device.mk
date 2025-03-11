@@ -122,6 +122,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     DSPVolumeSynchronizer
 
+# Dolby
+$(call inherit-product, hardware/dolby/dolby.mk)
+
+PRODUCT_PACKAGES += \
+    libstagefright_foundation-v33
+
 # Dalvik configs
 PRODUCT_VENDOR_PROPERTIES += \
     dalvik.vm.heapstartsize=24m \
@@ -162,6 +168,17 @@ PRODUCT_VENDOR_LINKER_CONFIG_FRAGMENTS += \
 # Media
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/media,$(TARGET_COPY_OUT_VENDOR)/etc)
+
+# Media (C2)
+ PRODUCT_PACKAGES += \
+      android.hardware.media.c2@1.0.vendor \
+      android.hardware.media.c2@1.1.vendor \
+      android.hardware.media.c2@1.2.vendor \
+      libcodec2_hidl@1.2.vendor \
+      libsfplugin_ccodec_utils.vendor \
+      libcodec2_soft_common.vendor \
+      libstagefright_softomx.vendor \
+      libstagefright_softomx_plugin.vendor
 
 # Lights
 PRODUCT_PACKAGES += \
