@@ -122,6 +122,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     DSPVolumeSynchronizer
 
+# Dolby
+$(call inherit-product, hardware/dolby/dolby.mk)
+
 # Dalvik configs
 PRODUCT_VENDOR_PROPERTIES += \
     dalvik.vm.heapstartsize=24m \
