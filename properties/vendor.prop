@@ -14,6 +14,10 @@ vendor.audio.usb.super_hifi=true
 vendor.audio.usb.iems.period_us=5000
 vendor.audiohal.telephonytx.type=2
 
+# Audio (Dolby)
+ro.vendor.audio.device.db=DB_XM
+ro.vendor.audio.device.dbcom=dolby_common
+
 # APK Verity
 ro.apk_verity.mode=2
 
